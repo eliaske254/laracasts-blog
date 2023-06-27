@@ -3,41 +3,20 @@
 <link rel="stylesheet" href="/app.css">
 
 <body>
-<article>
-    <h1><a href="/posts/my-first-post">My First Post</a></h1>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        In vulputate tortor ligula, ut laoreet eros lacinia sed.
-        Nullam tristique, velit eget aliquam efficitur, lectus ligula
-        eleifend magna, sed vehicula metus erat eu dui. Cras hendrerit
-        tortor felis, non vulputate purus imperdiet at. Quisque ornare urna
-        vitae nibh laoreet scelerisque at a velit.
-    </p>
-</article>
+ <?php foreach ($posts as $post) : ?>
+    <article>
+        <h1>
+            <a href="/posts/<?= $post->slug?>">
+                    <?= $post->title; ?>
+            </a>
 
-<article>
-    <h1><a href="/posts/my-second-post">My Second Post</a></h1>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        In vulputate tortor ligula, ut laoreet eros lacinia sed.
-        Nullam tristique, velit eget aliquam efficitur, lectus ligula
-        eleifend magna, sed vehicula metus erat eu dui. Cras hendrerit
-        tortor felis, non vulputate purus imperdiet at. Quisque ornare urna
-        vitae nibh laoreet scelerisque at a velit.
-    </p>
-</article>
+        </h1>
 
-<article>
-    <h1><a href="/posts/my-third-post">My Third Post</a></h1>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        In vulputate tortor ligula, ut laoreet eros lacinia sed.
-        Nullam tristique, velit eget aliquam efficitur, lectus ligula
-        eleifend magna, sed vehicula metus erat eu dui. Cras hendrerit
-        tortor felis, non vulputate purus imperdiet at. Quisque ornare urna
-        vitae nibh laoreet scelerisque at a velit.
-    </p>
-</article>
+        <div>
+            <?= $post->excerpt; ?>
+        </div>
+    </article>
 
 
+ <?php endforeach; ?>
 </body>
