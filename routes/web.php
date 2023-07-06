@@ -18,18 +18,8 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 |
 */
 
-Route::get('/', function () {
-    return view('posts', [
-        'posts' => Post::latest()->get(),
-        'categories' => Category::all()
-    ]);
-})->name('home');
-
-Route::get('posts/{post:slug}', function (Post $post) {
-    return view('post', [
-        'post' => $post
-    ]);
-  });
+Route::get('/', [\App\Http\Controllers\PostController::class, 'index'])->name('home');
+Route::get('posts/{post:slug}', [\App\Http\Controllers\PostController::class, 'show']);
 
 Route::get('categories/{category:slug}', function (Category $category) {
     return view('posts', [
